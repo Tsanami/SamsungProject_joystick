@@ -140,8 +140,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             dx = 0;
         }
 
-
-
     }
 
     @Override
