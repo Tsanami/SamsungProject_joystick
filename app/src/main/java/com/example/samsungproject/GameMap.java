@@ -49,20 +49,20 @@ public class GameMap {
         //changeMap();
     }
 
-//    private void changeMap(){
-//        for (int i = mapArray.length - 2; i >= 0 ; i--) {
-//            for (int j = 0; j < mapArray[i].length; j++) {
-//                mapArray[i + 1][j] = mapArray[i][j];
-//            }
-//        }
-//        Random random = new Random();
-//        for (int j = 0; j < mapArray[0].length; j++) {
-//            if(j > mapArray[0].length/2 - 5 - random.nextInt(7) &&
-//                    j < mapArray[0].length/2 + 5 + random.nextInt(7))
-//                mapArray[0][j] = 0;
-//            else
-//                mapArray[0][j] = random.nextInt(3) + 1;
-//        }
-//    }
+    private void changeMap(){
+        for (int i = mapArray.length - 2; i >= 0 ; i--) {
+            for (int j = 0; j < mapArray[i].length; j++) {
+                mapArray[i + 1][j] = mapArray[i][j];
+            }
+        }
+        Random random = new Random();
+        for (int j = 0; j < mapArray[0].length; j++) {
+            if(j > mapArray[0].length/2 - 5 - random.nextInt(7) &&
+                    j < mapArray[0].length/2 + 5 + random.nextInt(7))
+                mapArray[0][j] = 0;
+            else
+                mapArray[0][j] = random.nextInt(3) + 1;
+        }
+    }
 
 }
