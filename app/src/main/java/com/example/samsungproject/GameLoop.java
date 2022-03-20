@@ -1,19 +1,18 @@
 package com.example.samsungproject;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
-public class MyThread extends Thread {
+public class GameLoop extends Thread {
     boolean isRunning = false;
     SurfaceHolder surfaceHolder;
-    MySurfaceView mySurfaceView;
-    long prevTime,nowTime,ellapsedTime;
+    Game game;
+    long prevTime,nowTime, elapsedTime;
 
 
-    public MyThread(SurfaceHolder holder, MySurfaceView surfaceView) {
+    public GameLoop(SurfaceHolder holder, Game surfaceView) {
         surfaceHolder = holder;
-        mySurfaceView = surfaceView;
+        game = surfaceView;
         prevTime = System.currentTimeMillis();
     }
 
@@ -25,12 +24,12 @@ public class MyThread extends Thread {
                 continue;
             canvas = null;
             nowTime = System.currentTimeMillis();
-            ellapsedTime = nowTime - prevTime;
-            if(ellapsedTime > 50){
+            elapsedTime = nowTime - prevTime;
+            if(elapsedTime > 50){
                 prevTime = nowTime;
                 canvas = surfaceHolder.lockCanvas(null);
                 synchronized (surfaceHolder){
-                    mySurfaceView.draw(canvas);
+                    game.draw(canvas);
                 }
                 if (canvas != null){
                     surfaceHolder.unlockCanvasAndPost(canvas);
